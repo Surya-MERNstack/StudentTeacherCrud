@@ -22,9 +22,6 @@ input[type="email"] {
   padding: 1rem;
 
 }
-/* Teacher.css */
-
-/* ... Previous CSS code ... */
 
 button[type="submit"] {
   background-color: #555;
@@ -86,3 +83,21 @@ li button:active {
 .teacher-list li button {
   margin-left: 10px;
 }
+
+
+.tables{
+  border: 2px solid black;
+  border-collapse:collapse ;
+  width: 100%;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.tables,th{
+    font-size: 1.2rem;
+}
+.tables th,td{
+  border: 2px solid black;
+  padding: 0.5rem;
+}
+
