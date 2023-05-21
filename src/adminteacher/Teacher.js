@@ -24,8 +24,18 @@ function Teacher() {
       alert("Please fill in all fields.");
       return;
     }
-    const newTeacher = { ...formData, id: teachers.length + 1 };
-    setTeachers((prevTeachers) => [...prevTeachers, newTeacher]);
+
+    if (formData.id === "") {
+      const newTeacher = { ...formData, id: teachers.length + 1 };
+      setTeachers((prevTeachers) => [...prevTeachers, newTeacher]);
+    } else {
+      setTeachers((prevTeachers) =>
+        prevTeachers.map((teacher) =>
+          teacher.id === formData.id ? formData : teacher
+        )
+      );
+    }
+
     setFormData({
       id: "",
       name: "",
@@ -49,7 +59,7 @@ function Teacher() {
     <div>
       <h2>Teacher Management</h2>
       <form onSubmit={handleSubmit}>
-        <label>Name</label> <br />
+        <label>Name:</label> <br />
         <input
           type="text"
           name="name"
@@ -57,7 +67,7 @@ function Teacher() {
           onChange={handleChange}
         />
         <br /> <br />
-        <label>Age</label>
+        <label>Age:</label>
         <br />
         <input
           type="number"
@@ -67,7 +77,7 @@ function Teacher() {
         />
         <br />
         <br />
-        <label>Email</label>
+        <label>Email:</label>
         <br />
         <input
           type="email"
@@ -90,25 +100,28 @@ function Teacher() {
           </tr>
         </thead>
         <tbody>
-        {teachers.map((teacher) => (
-              <tr key={teacher.id}>
+          {teachers.map((teacher) => (
+            <tr key={teacher.id}>
               <td>{teacher.name}</td>
               <td>{teacher.age}</td>
               <td>{teacher.email}</td>
               <td>
-                  <button
-                    className="edit-button"
-                    onClick={() => handleEdit(teacher.id)}
-                  >
-                    Edit
-                  </button>
-                  <button  className="delete-button" onClick={() => handleDelete(teacher.id)}>
-                    Delete
-                  </button>
-                </td>
-              </tr>
-        ))}
-       </tbody>
+                <button
+                  className="edit-button"
+                  onClick={() => handleEdit(teacher.id)}
+                >
+                  Edit
+                </button>
+                <button
+                  className="delete-button"
+                  onClick={() => handleDelete(teacher.id)}
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   );
