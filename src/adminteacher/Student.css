@@ -36,10 +36,6 @@
   padding: 0.5rem;
 }
 
-
-/* Student.css */
-
-/* Style for the edit button */
 .edit-button {
   background-color: #428bca;
   color: #fff;
@@ -58,7 +54,7 @@
   border-radius: 2rem;
 }
 
-/* Style for the delete button */
+
 .delete-button {
   background-color: #d9534f;
   color: #fff;

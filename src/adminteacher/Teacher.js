@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Teacher.css";
 
-function Teacher() {
+const Teacher = () => {
   const [teachers, setTeachers] = useState([]);
   const [formData, setFormData] = useState({
     id: "",
